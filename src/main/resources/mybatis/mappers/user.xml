@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">	
+	<select id="login" parameterType="adminvo" resultType="adminvo">
+		<![CDATA[
+			select adId, stNum from adUser where adId = #{adId} and adPw = #{adPw}
+		]]>		
+	</select>
+	<insert id="join" parameterType="adminvo">
+		<![CDATA[
+			insert into adUser
+			values(#{adId}, #{adPw}, #{adName}, #{adPhone}, #{adAddr}, #{stName}, #{stPhone}, #{stTbcnt}, #{stNum}, now())
+		]]>
+		<selectKey keyProperty="stNum" resultType="String" order="AFTER">
+			<![CDATA[
+				select last_insert_id()
+			]]>	
+		</selectKey>
+	</insert>
+	
+</mapper>
