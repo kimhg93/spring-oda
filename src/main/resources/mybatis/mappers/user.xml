@@ -3,7 +3,7 @@
 <mapper namespace="user">	
 	<select id="login" parameterType="adminvo" resultType="adminvo">
 		<![CDATA[
-			select adId, stNum from adUser where adId = #{adId} and adPw = #{adPw}
+			select adId, stName, stNum from adUser where adId = #{adId} and adPw = #{adPw}
 		]]>		
 	</select>
 	<insert id="join" parameterType="adminvo">

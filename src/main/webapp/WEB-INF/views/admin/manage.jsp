@@ -14,13 +14,13 @@
 </head>
 
 <body style="height:100%;">
-    <p class="title">관리자 메뉴</p>
-
+    <p class="title">${authUser.stName}</p>
+	<p class="title" style="font-size:20px; margin-top:-20px;">관리자 메뉴</p>
     <div style="margin:80px auto;text-align: center">
-                <input type="button" value="주문대기" onclick="location.href='${path }/wtorder?stNum='+${authUser.stNum}"><br>
-                <input type="button" value="메뉴등록" onclick="location.href='${path }/qrOrder/admin/menu.jsp'"><br>
-                <input type="button" value="QR생성,확인" onclick="location.href='${path }/qrcode'"><br>
-                <input type="button" value="로그아웃" onclick="location.href='${path }/adlogin'"><br>
+                <input type="button" value="주문대기" onclick="location.href='${path }/manage/order/${authUser.stNum}"><br>
+                <input type="button" value="메뉴등록" onclick="location.href='${path }/manage/menu/${authUser.stNum }'"><br>
+                <input type="button" value="QR생성,확인" onclick="location.href='${path }/manage/code'"><br>
+                <input type="button" value="로그아웃" onclick="location.href='${path }/admin/logout'"><br>
            
     </div>
 </body>

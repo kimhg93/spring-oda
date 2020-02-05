@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.co.oda.service.AdminService;
 import kr.co.oda.vo.AdminUserVo;
@@ -31,11 +31,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		vo.setAdPw(adPw);
 		
 		AdminUserVo authUser = adminUserService.login(vo);
+		
 		response.setStatus(HttpServletResponse.SC_OK);
+		
 		if(authUser == null) {
 			String result = "0";			
 			OutputStream os = response.getOutputStream();
 			os.write(result.getBytes("utf-8"));
+			response.sendRedirect(request.getContextPath()+"/admin/login");
 			return false;
 		}
 		
@@ -44,9 +47,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		os.write(result.getBytes("utf-8"));
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("authUser", authUser);		
-		
-		
+		session.setAttribute("authUser", authUser);	
 		
 		return false;		
 	}

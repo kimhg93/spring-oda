@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kr.co.oda.service.AdminService;
 import kr.co.oda.vo.AdminUserVo;
@@ -25,9 +26,8 @@ public class AdminController {
 	public void login(AdminUserVo vo) {
 	}
 	
-	@RequestMapping(value="/index")
-	public String index() {
-		return "admin/admin";
+	@RequestMapping(value="/logout")
+	public void logout() {
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.GET)
@@ -42,5 +42,5 @@ public class AdminController {
 			System.out.println("Join Success");
 		}
 		return "admin/index";
-	}
+	}		
 }

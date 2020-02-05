@@ -3,8 +3,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="kr.co.oda.vo.AdminUserVo" alias="adminvo"/>
+		<typeAlias type="kr.co.oda.vo.MenuVo" alias="menuvo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/manage.xml" />
 	</mappers>
 </configuration>

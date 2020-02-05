@@ -52,7 +52,7 @@
 		            success: function(response) {
 		            	alert(response);
 		            	 if(response=="1"){
-		            		 location.href='${path}/admin/index';
+		            		 location.href='${path}/manage';
 		            	 } else{		            		 
 		            		 $("#fail").show();
 		            	 }

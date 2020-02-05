@@ -22,7 +22,15 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/admin/auth" />
 			<bean class="kr.co.oda.security.LoginInterceptor"/>
-		</mvc:interceptor>	
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/logout" />
+			<bean class="kr.co.oda.security.LogoutInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/manage/**" />
+			<bean class="kr.co.oda.security.AdminInterceptor"/>
+		</mvc:interceptor>		
 	</mvc:interceptors>
 	
 	<context:component-scan base-package="kr.co.oda.controller" />

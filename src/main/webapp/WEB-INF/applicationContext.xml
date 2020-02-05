@@ -15,8 +15,6 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 	<context:annotation-config />
-	
-	<bean class="kr.co.oda.config.AppConfig" />
 
  	<bean id="environmentVariablesConfiguration"
 		class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
@@ -36,6 +34,7 @@
 		</property>
 	</bean>
 	
+	<bean class="kr.co.oda.config.AppConfig" />
 	<context:property-placeholder location="classpath:kr/co/oda/config/app/jdbc.properties"/>
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
